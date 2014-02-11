@@ -1,7 +1,10 @@
 #!/bin/bash
 
+# TODO udev rule
 # look for users with a local display
-USRX=($(who | sed -n -e 's/^\([^ ]*\) *pts\/[0-9]* *[-0-9: ]*(\(:[0-9]*\))$/\1 \2/gp' | sort | uniq | sed -n 1p))
-
+#USRX=($(who | sed -n -e 's/^\([^ ]*\) *pts\/[0-9]* *[-0-9: ]*(\(:[0-9]*\))$/\1 \2/gp' | sort | uniq | sed -n 1p))
 # ${USRX[0]} == user ${USRX[1]} == display
-su ${USRX[0]} -c "DISPLAY=${USRX[1]} shuttlepro /dev/input/by-id/usb-Contour_Design_ShuttlePRO_v2-event-if00"
+#su ${USRX[0]} -c "DISPLAY=${USRX[1]} shuttlepro /dev/input/by-id/usb-Contour_Design_ShuttlePRO_v2-event-if00"
+
+screen -d -m -S shuttle
+screen -x shuttle -p 0 -X stuff $'shuttlepro /dev/input/by-id/usb-Contour_Design_ShuttlePRO_v2-event-if00\n'
