@@ -110,7 +110,19 @@
  JR XK_KP_1     # Frame forward
 
 
+###
+# Here is a start to control ardour (Jan-Peter Voigt)
 
+[Ardour 2] ^.* - Ardour$
+ K1 " "
+ K2 " "
+ K3 XK_Shift_L/D "R"
+ K4 XK_Home
+ JR XK_Alt_L/D XK_Right
+ JL XK_Alt_L/D XK_Left
+
+
+###
 [Default]
  K6 XK_Button_1
  K7 XK_Button_2
