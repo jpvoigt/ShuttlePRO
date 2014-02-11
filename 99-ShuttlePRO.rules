@@ -3,4 +3,5 @@
 
 # install this file in /etc/udev/rules.d
 
-ATTRS{name}=="Contour Design ShuttlePRO v2" MODE="0644"
+ACTION=="add",ATTRS{name}=="Contour Design ShuttlePRO v2",MODE="0644", RUN+="/usr/local/bin/shuttle &"
+ACTION=="remove",ATTRS{name}=="Contour Design ShuttlePRO v2", RUN+="/usr/bin/pkill shuttlepro"
